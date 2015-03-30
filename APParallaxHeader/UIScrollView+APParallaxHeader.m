@@ -147,13 +147,13 @@ static char UIScrollViewParallaxView;
     
     //// Gradient Declarations
     NSArray* gradient3Colors = [NSArray arrayWithObjects:
-                                (id)[UIColor colorWithWhite:0 alpha:0.3].CGColor,
+                                (id)[UIColor colorWithWhite:0 alpha:0.15].CGColor,
                                 (id)[UIColor clearColor].CGColor, nil];
     CGFloat gradient3Locations[] = {0, 1};
     CGGradientRef gradient3 = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)gradient3Colors, gradient3Locations);
     
     //// Rectangle Drawing
-    UIBezierPath* rectanglePath = [UIBezierPath bezierPathWithRect: CGRectMake(0, 0, CGRectGetWidth(rect), 8)];
+    UIBezierPath* rectanglePath = [UIBezierPath bezierPathWithRect: CGRectMake(0, 0, CGRectGetWidth(rect), 6)];
     CGContextSaveGState(context);
     [rectanglePath addClip];
     CGContextDrawLinearGradient(context, gradient3, CGPointMake(0, CGRectGetHeight(rect)), CGPointMake(0, 0), 0);
@@ -202,7 +202,7 @@ static char UIScrollViewParallaxView;
             self.shadowView = [[APParallaxShadowView alloc] init];
             [self addSubview:self.shadowView];
             [self.shadowView setTranslatesAutoresizingMaskIntoConstraints:NO];
-            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[shadowView(8.0)]|" options:NSLayoutFormatAlignAllBottom metrics:nil views:@{@"shadowView" : self.shadowView}]];
+            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[shadowView(6.0)]|" options:NSLayoutFormatAlignAllBottom metrics:nil views:@{@"shadowView" : self.shadowView}]];
             [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[shadowView]|" options:0 metrics:nil views:@{@"shadowView" : self.shadowView}]];
         }
     }
